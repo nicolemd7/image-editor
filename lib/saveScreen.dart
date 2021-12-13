@@ -37,7 +37,7 @@ class _SaveImageScreenState extends State<SaveImageScreen> {
     String dateSlug =
         "${today.day.toString().padLeft(2, '0')}-${today.month.toString().padLeft(2, '0')}-${today.year.toString()}_${today.hour.toString().padLeft(2, '0')}-${today.minute.toString().padLeft(2, '0')}-${today.second.toString().padLeft(2, '0')}";
     image = image.renameSync(
-        "${ogPath.split('/image')[0]}/PhotoEditor_$dateSlug.$ogExt");
+        "${ogPath.split('/image')[0]}/PhotoMaster_$dateSlug.$ogExt");
     print(image.path);
   }
 
@@ -45,14 +45,14 @@ class _SaveImageScreenState extends State<SaveImageScreen> {
     final RenderBox box = context.findRenderObject();
     if (Platform.isAndroid) {
       Share.shareFile(image,
-          subject: 'Image edited by Photo Editor',
+          subject: 'Image edited by PhotoMaster',
           text:
-              'Hey, Look what I edited with this amazing app called Photo Editor.',
+              'Hey, Look what I edited with this amazing app called PhotoMaster.',
           sharePositionOrigin: box.localToGlobal(Offset.zero) & box.size);
     } else {
       Share.share(
-          'Hey, Look what I edited with this amazing app called Photo Editor.',
-          subject: 'Image edited by Photo Editor',
+          'Hey, Look what I edited with this amazing app called PhotoMaster.',
+          subject: 'Image edited by PhotoMaster',
           sharePositionOrigin: box.localToGlobal(Offset.zero) & box.size);
     }
   }
